@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Professional Portfolio</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: linear-gradient(135deg, #f8f9fa 0%, #e3f0ff 100%);
+        min-height: 100vh;
+      }
+
+      .navbar {
+        background: linear-gradient(
+          90deg,
+          #0d6efd 60%,
+          #6610f2 100%
+        ) !important;
+      }
+
+      .navbar .navbar-brand,
+      .navbar .nav-link {
+        color: #fff !important;
+        text-shadow: 0 2px 8px #0d6efd33;
+      }
+
+      .navbar .nav-link.active,
+      .navbar .nav-link:focus,
+      .navbar .nav-link:hover {
+        color: #ffe066 !important;
+        text-shadow: 0 2px 8px #ffe06699;
+      }
+
+      .hero {
+        background: linear-gradient(120deg, #0d6efd 60%, #6610f2 100%),
+          url("https://picsum.photos/1920/1080");
+        background-blend-mode: multiply;
+        background-size: cover;
+        color: #fff;
+        margin-top: 5px;
+      }
+
+      .section-title {
+        color: #0d6efd;
+        text-shadow: 0 2px 8px #0d6efd22;
+      }
+
+      .skills-card {
+        background: linear-gradient(135deg, #fff 70%, #e3f0ff 100%);
+        border: 2px solid #e3f0ff;
+      }
+
+      .skills-card:hover {
+        background: linear-gradient(135deg, #e3f0ff 60%, #fff 100%);
+        border-color: #0d6efd;
+      }
+
+      .skills-icon {
+        color: #0d6efd;
+        background: linear-gradient(135deg, #e3f0ff 60%, #fff 100%);
+        border-radius: 50%;
+        padding: 12px;
+        box-shadow: 0 2px 8px #0d6efd22;
+      }
+
+      .progress {
+        background: #e3f0ff;
+      }
+
+      .progress-bar.bg-info {
+        background: #0dcaf0;
+      }
+
+      .progress-bar.bg-primary {
+        background: #6610f2;
+      }
+
+      .progress-bar.bg-success {
+        background: #198754;
+      }
+
+      .progress-bar.bg-warning {
+        background: #ffc107;
+        color: #333;
+      }
+
+      .progress-bar.bg-danger {
+        background: #dc3545;
+      }
+
+      .certificate-card {
+        background: linear-gradient(135deg, #fff 70%, #e3f0ff 100%);
+        border: 2px solid #e3f0ff;
+      }
+
+      .certificate-card:hover {
+        background: linear-gradient(135deg, #e3f0ff 60%, #fff 100%);
+        border-color: #0d6efd;
+      }
+
+      .badge.bg-success {
+        background: linear-gradient(
+          90deg,
+          #28a745 60%,
+          #0d6efd 100%
+        ) !important;
+        color: #fff;
+      }
+
+      .badge.bg-warning {
+        background: linear-gradient(
+          90deg,
+          #ffc107 60%,
+          #0d6efd 100%
+        ) !important;
+        color: #333;
+      }
+
+      .badge.bg-primary {
+        background: linear-gradient(
+          90deg,
+          #6610f2 60%,
+          #0d6efd 100%
+        ) !important;
+        color: #fff;
+      }
+
+      .project-card {
+        background: linear-gradient(135deg, #fff 70%, #e3f0ff 100%);
+        border: 2px solid #e3f0ff;
+      }
+
+      .project-card:hover {
+        background: linear-gradient(135deg, #e3f0ff 60%, #fff 100%);
+        border-color: #0d6efd;
+      }
+
+      footer {
+        background: linear-gradient(
+          90deg,
+          #0d6efd 60%,
+          #6610f2 100%
+        ) !important;
+        color: #fff;
+        text-shadow: 0 2px 8px #0d6efd33;
+      }
+
+      /* Existing styles... */
+      @keyframes heroFadeIn {
+        0% {
+          opacity: 0;
+          transform: scale(1.05);
+        }
+
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      .hero img {
+        animation: imgPopIn 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+        transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+        width: 220px !important;
+        height: 220px !important;
+      }
+
+      .hero img:hover {
+        transform: scale(1.15) rotate(3deg);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25),
+          0 0 0 8px rgba(255, 255, 255, 0.5);
+        z-index: 2;
+      }
+
+      .hero h1 {
+        animation: slideDown 1.2s 0.3s cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+
+      @keyframes slideDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero p.lead {
+        animation: fadeInUp 1.2s 0.7s cubic-bezier(0.23, 1, 0.32, 1) both;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(40px);
+        }
+
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .card {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .typing-animation {
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid #0d6efd;
+        width: 0;
+        display: inline-block;
+        animation: typing 2.5s steps(30, end) forwards,
+          blink 0.75s step-end infinite;
+      }
+
+      .typing-animation-designation {
+        overflow: hidden;
+        white-space: nowrap;
+        border-right: 2px solid #0d6efd;
+        width: 0;
+        display: inline-block;
+        animation: typing 2.5s 2.6s steps(40, end) forwards,
+          blink 0.75s step-end infinite 2.6s;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      .skills-card {
+        background: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+        padding: 24px 16px;
+        margin-bottom: 24px;
+        transition: transform 0.2s, box-shadow 0.2s;
+        height: 100%;
+      }
+
+      .skills-card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
+      }
+
+      .skills-icon {
+        color: #0d6efd;
+        margin-bottom: 12px;
+      }
+
+      .project-card {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        padding: 24px 18px;
+        margin-bottom: 24px;
+        transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .project-card:hover {
+        transform: translateY(-12px) scale(1.04) rotate(-1deg);
+        box-shadow: 0 12px 36px rgba(13, 110, 253, 0.18), 0 0 0 6px #e7f1ff;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        background: radial-gradient(circle, #0d6efd22 0%, transparent 80%);
+        transform: translate(-50%, -50%);
+        transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+          height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 0;
+      }
+
+      .project-card:hover::before {
+        width: 250%;
+        height: 250%;
+      }
+
+      .project-card h5,
+      .project-card p,
+      .project-card small {
+        position: relative;
+        z-index: 2;
+      }
+
+      .certificate-card {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        padding: 24px 18px;
+        margin-bottom: 24px;
+        transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .certificate-card:hover {
+        transform: translateY(-12px) scale(1.04) rotate(-1deg);
+        box-shadow: 0 12px 36px rgba(13, 110, 253, 0.18), 0 0 0 6px #e7f1ff;
+      }
+
+      .certificate-card::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0;
+        height: 0;
+        background: radial-gradient(circle, #0d6efd22 0%, transparent 80%);
+        transform: translate(-50%, -50%);
+        transition: width 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+          height 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+        z-index: 0;
+      }
+
+      .certificate-card:hover::before {
+        width: 250%;
+        height: 250%;
+      }
+
+      .certificate-card h5,
+      .certificate-card p,
+      .certificate-card span {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Section scroll animation */
+      .reveal-section {
+        opacity: 0;
+        transform: translateY(60px) scale(0.98);
+        transition: opacity 5s cubic-bezier(0.23, 1, 0.32, 1),
+          transform 3s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .reveal-section.visible {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+
+      body {
+        padding-top: 70px;
+      }
+
+      /* Make each section fill the viewport height on desktop, but auto on mobile */
+      section,
+      header.hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      @media (max-width: 991.98px) {
+        section,
+        header.hero {
+          min-height: auto;
+          padding-top: 60px;
+          padding-bottom: 60px;
+        }
+      }
+      .container {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+
+      /* Skill progress bar transition */
+      .progress-bar {
+        transition: width 1.2s cubic-bezier(0.23, 1, 0.32, 1),
+          background-color 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+      }
+      .skills-card:hover .progress-bar {
+        box-shadow: 0 0 16px 2px #0d6efd44;
+        filter: brightness(1.1) saturate(1.2);
+      }
+      .progress-bar {
+        will-change: width;
+      }
+
+      /* Responsive hero + about side-by-side layout */
+      .hero-about-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 48px;
+        flex-wrap: wrap;
+      }
+      .hero-content {
+        min-width: 320px;
+        max-width: 420px;
+        text-align: left;
+      }
+      .about-content {
+        min-width: 320px;
+        max-width: 480px;
+        background: rgba(255, 255, 255, 0.85);
+        border-radius: 18px;
+        box-shadow: 0 4px 24px #0d6efd11;
+        padding: 32px 28px;
+        margin-top: 0;
+      }
+      @media (max-width: 991.98px) {
+        .hero-about-wrapper {
+          flex-direction: column;
+          gap: 32px;
+        }
+        .hero-content,
+        .about-content {
+          max-width: 100%;
+          text-align: center;
+        }
+        .about-content {
+          padding: 24px 12px;
+        }
+      }
+
+      .education-card {
+        border-radius: 16px;
+        box-shadow: 0 4px 24px #0d6efd11;
+        background: linear-gradient(135deg, #fff 70%, #e3f0ff 100%);
+        border: 2px solid #e3f0ff;
+        transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1),
+          box-shadow 0.25s cubic-bezier(0.23, 1, 0.32, 1);
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+      }
+      .education-card:hover {
+        transform: translateY(-10px) scale(1.03) rotate(-1deg);
+        box-shadow: 0 12px 36px #0d6efd22, 0 0 0 6px #e7f1ff;
+        background: linear-gradient(135deg, #e3f0ff 60%, #fff 100%);
+        border-color: #0d6efd;
+      }
+      .education-card .fa-3x {
+        transition: color 0.3s, transform 0.3s;
+      }
+      .education-card:hover .fa-3x {
+        transform: scale(1.15) rotate(-6deg);
+        filter: brightness(1.2) saturate(1.2);
+      }
+      .education-card .badge.bg-primary,
+      .education-card .badge.bg-success,
+      .education-card .badge.bg-warning {
+        background: #0d6efd !important;
+        color: #fff !important;
+        box-shadow: 0 2px 8px #0d6efd22;
+      }
+      .education-card .badge.bg-success {
+        background: #198754 !important;
+      }
+      .education-card .badge.bg-warning {
+        background: #ffc107 !important;
+        color: #333 !important;
+      }
+
+      /* Use same color for all skill progress bars */
+      .progress-bar {
+        background: #0d6efd !important;
+        color: #fff;
+        position: relative;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+        text-align: right;
+        padding-right: 10px;
+      }
+      .skills-card:hover .progress-bar {
+        box-shadow: 0 0 16px 2px #0d6efd44;
+        filter: brightness(1.1) saturate(1.2);
+      }
+
+      /* Social links in header */
+      .social-link {
+        background: rgba(255, 255, 255, 0.85) !important;
+        box-shadow: 0 2px 12px #0d6efd22, 0 1.5px 8px #6610f233;
+        border: none !important;
+        color: #0d6efd !important;
+        transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+      }
+      .social-link:hover {
+        background: #0d6efd !important;
+        color: #fff !important;
+        box-shadow: 0 4px 18px #0d6efd55, 0 2px 12px #6610f244;
+      }
+      .social-link .fa-linkedin-in {
+        color: #0a66c2 !important;
+      }
+      .social-link .fa-github {
+        color: #333 !important;
+      }
+      .social-link:hover .fa-linkedin-in,
+      .social-link:hover .fa-github {
+        color: #fff !important;
+      }
+
+      /* Desktop-specific enhancements for large screens */
+      @media (min-width: 1400px) {
+        .container {
+          max-width: 1320px;
+        }
+        .hero-about-wrapper {
+          gap: 80px;
+        }
+        .hero-content {
+          max-width: 500px;
+        }
+        .about-content {
+          max-width: 600px;
+          padding: 48px 40px;
+        }
+        .skills-card,
+        .certificate-card,
+        .project-card,
+        .education-card {
+          padding: 36px 28px;
+        }
+        .section-title {
+          font-size: 2.7rem;
+        }
+        .hero h1.display-4 {
+          font-size: 3.5rem;
+        }
+        .hero img {
+          width: 300px !important;
+          height: 300px !important;
+        }
+        .row.g-4 > [class^="col-"] {
+          margin-bottom: 0;
+        }
+        section,
+        header.hero {
+          min-height: 90vh;
+        }
+      }
+
+      /* Decrease the size of all elements except the header section */
+      html {
+        font-size: 16px;
+      }
+      body {
+        font-size: 1rem;
+      }
+      .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 32px;
+      }
+      .skills-card,
+      .certificate-card,
+      .project-card,
+      .education-card {
+        padding: 1.3rem 1rem;
+        font-size: 0.98rem;
+        border-radius: 12px;
+      }
+      .skills-icon {
+        font-size: 2.2rem !important;
+        margin-bottom: 10px;
+      }
+      .btn,
+      .form-control,
+      textarea {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+      }
+      .progress {
+        height: 8px !important;
+      }
+      .progress-bar {
+        font-size: 0.95rem;
+        padding-right: 8px;
+      }
+      .navbar .navbar-brand,
+      .navbar .nav-link {
+        font-size: 1rem;
+      }
+      .about-content {
+        font-size: 1rem;
+        padding: 1.3rem 1.1rem;
+      }
+      /* Keep header section larger */
+      .hero h1.display-4 {
+        font-size: 3.2rem;
+      }
+      .hero p.lead {
+        font-size: 1.5rem;
+      }
+      .hero img {
+        width: 180px !important;
+        height: 180px !important;
+      }
+      @media (min-width: 1400px) {
+        html {
+          font-size: 20px;
+        }
+        .section-title {
+          font-size: 1.7rem;
+        }
+        .skills-icon {
+          font-size: 2.5rem !important;
+        }
+        .skills-card,
+        .certificate-card,
+        .project-card,
+        .education-card {
+          padding: 1.7rem 1.3rem;
+        }
+        .about-content {
+          font-size: 1.05rem;
+          padding: 1.7rem 1.4rem;
+        }
+      }
+
+      /* Make hero image larger on desktop */
+      .hero img {
+        width: 220px !important;
+        height: 220px !important;
+      }
+      @media (min-width: 1400px) {
+        .hero img {
+          width: 300px !important;
+          height: 300px !important;
+        }
+      }
+
+      /* Navbar font enhancements */
+      .navbar .navbar-brand {
+        font-size: 1.5rem !important;
+        font-family: "Poppins", "Segoe UI Semibold", "Montserrat", Arial,
+          sans-serif;
+        font-weight: 700;
+        letter-spacing: 1.2px;
+        text-shadow: 0 2px 8px #0d6efd33, 0 1px 0 #fff;
+      }
+      .navbar .nav-link {
+        font-size: 1.15rem !important;
+        font-family: "Poppins", "Segoe UI Semibold", "Montserrat", Arial,
+          sans-serif;
+        font-weight: 500;
+        letter-spacing: 0.7px;
+        text-shadow: 0 1.5px 6px #0d6efd22;
+        transition: color 0.2s, text-shadow 0.2s;
+      }
+      @media (min-width: 1400px) {
+        .navbar .navbar-brand {
+          font-size: 1.8rem !important;
+        }
+        .navbar .nav-link {
+          font-size: 1.25rem !important;
+        }
+      }
+
+      /* Add spacing and alignment for project cards */
+      #projects .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 32px 24px; /* row-gap, column-gap */
+        justify-content: center;
+      }
+      #projects .col-md-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        min-width: 320px;
+        max-width: 370px;
+        flex: 1 1 320px;
+        margin-bottom: 0 !important;
+      }
+      #projects .project-card {
+        margin-bottom: 0 !important;
+        height: 100%;
+      }
+      @media (max-width: 991.98px) {
+        #projects .row {
+          gap: 24px 0;
+        }
+        #projects .col-md-4 {
+          min-width: 100%;
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navigation Bar -->
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Sanjayraj G T</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#certificates">Achievements</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#education">Education</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Header / Hero + About Section Side by Side -->
+    <header class="hero reveal-section" id="top">
+      <div class="container hero-about-wrapper">
+        <div class="hero-content">
+          <img
+            src="sanjay.jpg"
+            alt="Sanjayraj G T Photo"
+            class="rounded-circle mb-3"
+            style="
+              width: 280px;
+              height: 280px;
+              object-fit: cover;
+              border: 5px solid #fff;
+              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            "
+          />
+          <h1 class="display-4">Sanjayraj G T</h1>
+          <p class="lead">Full Stack Developer</p>
+        </div>
+        <div class="about-content">
+          <h2 class="section-title">About Me</h2>
+          <p
+            class="text-center text-md-start mb-0 text-dark"
+            style="font-family: poppins"
+          >
+            Passionate and dedicated developer with experience in creating
+            dynamic web applications using JavaScript, MySQL, PHP, MERN and
+            modern frontend technologies like ReactJS, Bootstrap. Seeking
+            opportunities to build impactful software and solve real-world
+            problems.
+          </p>
+        </div>
+      </div>
+      <div class="d-flex gap-3 mt-3 justify-content-center">
+        <a
+          href="https://www.linkedin.com/in/sanjayrajgt"
+          target="_blank"
+          class="btn btn-outline-primary rounded-circle social-link bg-white bg-opacity-75 shadow-sm border-0"
+          style="
+            backdrop-filter: blur(2px);
+            transition: background 0.3s, color 0.3s;
+          "
+          aria-label="LinkedIn"
+        >
+          <i class="fab fa-linkedin-in fa-lg" style="color: #0a66c2"></i>
+        </a>
+        <a
+          href="https://github.com/sanjayrajgt"
+          target="_blank"
+          class="btn btn-outline-dark rounded-circle social-link bg-white bg-opacity-75 shadow-sm border-0"
+          style="
+            backdrop-filter: blur(2px);
+            transition: background 0.3s, color 0.3s;
+          "
+          aria-label="GitHub"
+        >
+          <i class="fab fa-github fa-lg" style="color: #181717"></i>
+        </a>
+      </div>
+    </header>
+
+    <!-- Skills Section -->
+    <section class="py-5 bg-light reveal-section" id="skills">
+      <div class="container">
+        <h2 class="section-title">Skills</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4 col-lg-3">
+            <div class="skills-card text-center h-100">
+              <i class="fab fa-js-square fa-3x skills-icon"></i>
+              <h5>JavaScript</h5>
+              <p>
+                Experienced in ES6+, DOM manipulation, asynchronous programming,
+                and building interactive web applications.
+              </p>
+              <div class="progress mb-2" style="height: 8px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 60%"
+                  aria-valuenow="60"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-muted">Intermediate</small>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <div class="skills-card text-center h-100">
+              <i class="fas fa-database fa-3x skills-icon"></i>
+              <h5>MySQL</h5>
+              <p>
+                Skilled in designing, querying, and optimizing relational
+                databases for robust backend solutions.
+              </p>
+              <div class="progress mb-2" style="height: 8px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 60%"
+                  aria-valuenow="60"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-muted">Intermediate</small>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <div class="skills-card text-center h-100">
+              <i class="fab fa-html5 fa-3x skills-icon"></i>
+              <h5>HTML & CSS</h5>
+              <p>
+                Proficient in semantic HTML5, modern CSS3, Flexbox, Grid, and
+                responsive design for visually appealing layouts.
+              </p>
+              <div class="progress mb-2" style="height: 8px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 85%"
+                  aria-valuenow="85"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-muted">Advanced</small>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <div class="skills-card text-center h-100">
+              <i class="fab fa-bootstrap fa-3x skills-icon"></i>
+              <h5>Bootstrap</h5>
+              <p>
+                Expert in using Bootstrap to rapidly develop responsive and
+                mobile-first web interfaces.
+              </p>
+              <div class="progress mb-2" style="height: 8px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 80%"
+                  aria-valuenow="80"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-muted">Advanced</small>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <div class="skills-card text-center h-100">
+              <i class="fab fa-react fa-3x skills-icon"></i>
+              <h5>MERN Stack</h5>
+              <p>
+                Hands-on experience with MongoDB, Express.js, React, and Node.js
+                for building full-stack web applications.
+              </p>
+              <div class="progress mb-2" style="height: 8px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 25%"
+                  aria-valuenow="25"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-muted">Beginner</small>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <div class="skills-card text-center h-100">
+              <i class="fas fa-code fa-3x skills-icon"></i>
+              <h5>C programming</h5>
+              <p>
+                Proficient in advanced C programming concepts, memory
+                management, and building efficient algorithms and data
+                structures.
+              </p>
+              <div class="progress mb-2" style="height: 8px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 85%"
+                  aria-valuenow="85"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-muted">Advanced</small>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-3">
+            <div class="skills-card text-center h-100">
+              <i class="fab fa-java fa-3x skills-icon"></i>
+              <h5>Java (Intermediate)</h5>
+              <p>
+                Solid understanding of Java OOP, collections, exception
+                handling, and building backend logic for web applications.
+              </p>
+              <div class="progress mb-2" style="height: 8px">
+                <div
+                  class="progress-bar"
+                  role="progressbar"
+                  style="width: 60%"
+                  aria-valuenow="60"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+              <small class="text-muted">Intermediate</small>
+            </div>
+          </div>
+        </div>
+        <!-- Soft Skills & Tools Subsection -->
+        <h3
+          class="section-title mt-5"
+          style="font-size: 1.2rem; text-align: left"
+        >
+          Tools and Soft Skills
+        </h3>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-3 col-6">
+            <div class="skills-card text-center h-100">
+              <i
+                class="fas fa-paint-brush fa-2x skills-icon"
+                style="color: #00c4cc"
+              ></i>
+              <h6 class="mt-2 mb-1">Canva</h6>
+              <small class="text-muted">Design Tool</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="skills-card text-center h-100">
+              <i
+                class="fas fa-code fa-2x skills-icon"
+                style="color: #0078d7"
+              ></i>
+              <h6 class="mt-2 mb-1">VS Code</h6>
+              <small class="text-muted">Code Editor</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="skills-card text-center h-100">
+              <i
+                class="fas fa-users fa-2x skills-icon"
+                style="color: #0d6efd"
+              ></i>
+              <h6 class="mt-2 mb-1">Team Management</h6>
+              <small class="text-muted">Soft Skill</small>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="skills-card text-center h-100">
+              <i
+                class="fas fa-chess-king fa-2x skills-icon"
+                style="color: #ffc107"
+              ></i>
+              <h6 class="mt-2 mb-1">Leadership</h6>
+              <small class="text-muted">Soft Skill</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Certificates & Achievements Section -->
+    <section class="py-5 reveal-section bg-white" id="certificates">
+      <div class="container">
+        <h2 class="section-title">Certificates & Achievements</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100 certificate-card">
+              <div class="card-body">
+                <h5 class="card-title mb-2">Introduction to Deep Learning</h5>
+                <p class="card-text mb-1">NVIDIA, 2024</p>
+                <span class="badge bg-success">Certificate</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100 certificate-card">
+              <div class="card-body">
+                <h5 class="card-title mb-2">
+                  Fundamentals of Machine Learning
+                </h5>
+                <p class="card-text mb-1">Kaggle, 2024</p>
+                <span class="badge bg-success">Certificate</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4">
+            <div class="card shadow-sm border-0 h-100 certificate-card">
+              <div class="card-body">
+                <h5 class="card-title mb-2">Gold Award - ISPRC Ideathon</h5>
+                <p class="card-text mb-1">
+                  Sri Ramakrishna Institute of Technology, 2022
+                </p>
+                <span class="badge bg-warning text-dark fw-semibold"
+                  ><i class="fas fa-trophy me-1"></i>Gold</span
+                >
+                <span class="badge bg-primary">Achievement</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-5 reveal-section" id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="project-card h-100">
+              <h5>Health Monitoring System</h5>
+              <p>
+                A fully JavaScript-based project that utilizes simple and
+                compact concepts to monitor and display health-related data in
+                real time.
+              </p>
+              <small
+                >Tech: JavaScript, HTML, CSS | CSS Framework: TailwindCSS</small
+              >
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project-card h-100">
+              <h5>Online Food Ordering System</h5>
+              <p>
+                A dynamic web application using Java, MySQL, and PHP for the
+                server side, designed to provide a seamless food ordering
+                experience. Built on a robust database management system (DBMS).
+              </p>
+              <small>Tech: Java, MySQL, PHP</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project-card h-100">
+              <h5>Portfolio Website</h5>
+              <p>
+                A responsive and professional portfolio website developed with
+                HTML5, Bootstrap, and JavaScript to showcase projects and
+                skills.
+              </p>
+              <small>Tech: HTML5, Bootstrap, JavaScript</small>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="project-card h-100 position-relative">
+              <h5>Inventory Management System</h5>
+              <span
+                class="badge bg-danger text-dark position-absolute top-0 end-0 m-2"
+                >In Progress</span
+              >
+              <p>
+                A web-based application for managing inventory, built with HTML,
+                CSS, JavaScript, and PHP. Utilizes MySQL for robust data storage
+                and retrieval. Features include product tracking, stock updates,
+                and reporting.
+              </p>
+              <small>Tech: HTML, CSS, JavaScript, PHP, MySQL</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section class="py-5 bg-light reveal-section" id="education">
+      <div class="container">
+        <h2 class="section-title">Education</h2>
+        <div class="row g-4 justify-content-center">
+          <div class="col-md-4">
+            <div class="card education-card h-100 text-center">
+              <div class="card-body">
+                <i class="fas fa-graduation-cap fa-3x mb-3 text-primary"></i>
+                <h5 class="card-title">
+                  B.E in Computer Science and Engineering
+                </h5>
+                <p class="card-text mb-1">
+                  Sri Ramakrishna Institute of Technology
+                </p>
+                <span class="badge bg-primary mb-2">2022 - 2026</span>
+                <p class="text-muted small mb-0">Expected Graduation: 2026</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card education-card h-100 text-center">
+              <div class="card-body">
+                <i class="fas fa-university fa-3x mb-3 text-success"></i>
+                <h5 class="card-title">HSC</h5>
+                <p class="card-text mb-1">
+                  Sri Sarasvathi Vidhya Mandhir Matric Hr Sec School
+                </p>
+                <span class="badge bg-success mb-2">2020 - 2022</span>
+                <p class="text-muted small mb-0">Completed: 2022</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card education-card h-100 text-center">
+              <div class="card-body">
+                <i class="fas fa-school fa-3x mb-3 text-warning"></i>
+                <h5 class="card-title">SSLC</h5>
+                <p class="card-text mb-1">R.N Oxford Matriculation School</p>
+                <span class="badge bg-warning text-dark mb-2">2014 - 2020</span>
+                <p class="text-muted small mb-0">Completed: 2020</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="py-5 reveal-section" id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact</h2>
+        <form>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <input type="text" class="form-control" placeholder="Your Name" />
+            </div>
+            <div class="col-md-6">
+              <input
+                type="email"
+                class="form-control"
+                placeholder="Your Email"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <textarea
+              class="form-control"
+              rows="5"
+              placeholder="Your Message"
+            ></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 bg-dark text-white">
+      <p>&copy; 2025 Sanjayraj G T. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Reveal sections on scroll
+      function revealOnScroll() {
+        const reveals = document.querySelectorAll(".reveal-section");
+        const windowHeight = window.innerHeight;
+        reveals.forEach((section) => {
+          const sectionTop = section.getBoundingClientRect().top;
+          if (sectionTop < windowHeight - 80) {
+            section.classList.add("visible");
+          } else {
+            section.classList.remove("visible");
+          }
+        });
+      }
+      window.addEventListener("scroll", revealOnScroll);
+      window.addEventListener("DOMContentLoaded", revealOnScroll);
+
+      // Typewriter effect for navbar brand
+      document.addEventListener("DOMContentLoaded", function () {
+        const el = document.getElementById("typewriter");
+        const text = "Sanjayraj G T";
+        let i = 0;
+        el.textContent = "";
+        function type() {
+          if (i < text.length) {
+            el.textContent += text.charAt(i);
+            i++;
+            setTimeout(type, 120);
+          }
+        }
+        type();
+      });
+      // Animate skill progress bars when skills section is visible
+      function animateSkillBars() {
+        const skillsSection = document.getElementById("skills");
+        const progressBars = skillsSection.querySelectorAll(".progress-bar");
+        if (skillsSection.classList.contains("skills-animate")) return;
+        if (
+          skillsSection.getBoundingClientRect().top <
+          window.innerHeight - 80
+        ) {
+          skillsSection.classList.add("skills-animate");
+          progressBars.forEach((bar) => {
+            bar.style.width = "0%";
+            setTimeout(() => {
+              const width = bar.getAttribute("aria-valuenow") + "%";
+              bar.style.width = width;
+            }, 150);
+          });
+        }
+      }
+      window.addEventListener("scroll", animateSkillBars);
+      window.addEventListener("DOMContentLoaded", animateSkillBars);
+
+      // Hero image changes in order on every refresh and every 30 seconds
+      document.addEventListener("DOMContentLoaded", function () {
+        const heroImg = document.querySelector(".hero-content img");
+        const heroImages = [
+          "img/sanjay.jpg",
+          "img/sanjay1.jpg",
+          "img/sanjay2.jpg",
+          "img/sanjay3.jpg",
+          "img/sanjay4.jpg",
+          "img/sanjay5.jpg",
+          "img/sanjay6.jpg",
+          "img/sanjay7.jpg",
+          "img/sanjay8.jpg",
+        ];
+        // Get last shown index from localStorage, or start at 0
+        let idx = parseInt(localStorage.getItem("heroImgIdx") || "0", 10);
+        if (isNaN(idx) || idx < 0 || idx >= heroImages.length) idx = 0;
+        heroImg.setAttribute("src", heroImages[idx]);
+        // Save next index for next refresh
+        localStorage.setItem("heroImgIdx", (idx + 1) % heroImages.length);
+        function showNextHeroImg() {
+          idx = (idx + 1) % heroImages.length;
+          heroImg.setAttribute("src", heroImages[idx]);
+          localStorage.setItem("heroImgIdx", (idx + 1) % heroImages.length);
+        }
+        setInterval(showNextHeroImg, 30000); // 30 seconds
+      });
+    </script>
+  </body>
+</html>
