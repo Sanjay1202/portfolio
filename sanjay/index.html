@@ -724,6 +724,19 @@
           max-width: 100%;
         }
       }
+       #projects .project-card .badge.bg-danger.position-absolute {
+        margin-top: 8px;
+        margin-right: 8px;
+        z-index: 3;
+      }
+      #projects .project-card .badge.bg-danger.position-absolute + p {
+        margin-top: 32px;
+      }
+      @media (max-width: 991.98px) {
+        #projects .project-card .badge.bg-danger.position-absolute + p {
+          margin-top: 24px;
+        }
+      }
     </style>
   </head>
 
