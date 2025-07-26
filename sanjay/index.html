@@ -724,7 +724,9 @@
           max-width: 100%;
         }
       }
-       #projects .project-card .badge.bg-danger.position-absolute {
+
+      /* Add space between 'In Progress' badge and content in project card */
+      #projects .project-card .badge.bg-danger.position-absolute {
         margin-top: 8px;
         margin-right: 8px;
         z-index: 3;
@@ -821,7 +823,7 @@
       </div>
       <div class="d-flex gap-3 mt-3 justify-content-center">
         <a
-          href="https://www.linkedin.com/in/sanjayraj-g-t-aa262a25b/"
+          href="https://www.linkedin.com/in/sanjayrajgt"
           target="_blank"
           class="btn btn-outline-primary rounded-circle social-link bg-white bg-opacity-75 shadow-sm border-0"
           style="
@@ -833,7 +835,7 @@
           <i class="fab fa-linkedin-in fa-lg" style="color: #0a66c2"></i>
         </a>
         <a
-          href="https://github.com/Sanjay1202"
+          href="https://github.com/sanjayrajgt"
           target="_blank"
           class="btn btn-outline-dark rounded-circle social-link bg-white bg-opacity-75 shadow-sm border-0"
           style="
@@ -1211,13 +1213,21 @@
         <form>
           <div class="row mb-3">
             <div class="col-md-6">
-              <input type="text" class="form-control" placeholder="Your Name" />
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                placeholder="Your Name"
+                required
+              />
             </div>
             <div class="col-md-6">
               <input
                 type="email"
                 class="form-control"
                 placeholder="Your Email"
+                id="email"
+                required
               />
             </div>
           </div>
@@ -1226,9 +1236,17 @@
               class="form-control"
               rows="5"
               placeholder="Your Message"
+              id="message"
+              required
             ></textarea>
           </div>
-          <button class="btn btn-primary" type="submit">Send</button>
+          <button
+            class="btn btn-primary"
+            type="submit"
+            onclick="sendMessage(event)"
+          >
+            Send
+          </button>
         </form>
       </div>
     </section>
@@ -1320,6 +1338,28 @@
         }
         setInterval(showNextHeroImg, 30000); // 30 seconds
       });
+
+      // message sending through whatsapp
+      const sendMessage = (e) => {
+        e.preventDefault();
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        if (!name || !email || !message) {
+          alert("Please fill out all fields.");
+          return;
+        }
+
+        const phone = "918015052453";
+        // The 'subject' variable was not defined and has been removed.
+        // Using encodeURIComponent correctly formats the message for the URL.
+        const text = encodeURIComponent(
+          `Name: ${name}\nEmail: ${email}\nMessage: ${message}`
+        );
+        const url = `https://wa.me/${phone}?text=${text}`;
+        window.open(url, "_blank");
+      };
     </script>
   </body>
 </html>
